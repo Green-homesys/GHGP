@@ -315,6 +315,13 @@
   footer { padding: 34px 0 40px; text-align: center; color: var(--muted); font-size: 14px; }
   footer b { color: var(--ink); }
   footer p { margin-bottom: 4px; }
+  /* 좁은 폰에서 "완성창 / 대리점", "1401호"만 따로 떨어지거나 줄 끝에 "·"가 매달리지 않게 —
+     덩어리는 안 쪼개고, 한 줄에 다 안 들어가는 폭(≈389px 이하)에선 "·" 자리에서 줄을 바꾼다. */
+  footer .nw { white-space: nowrap; }
+  @media (max-width: 389px) {
+    footer .sep { display: none; }
+    footer .sep + .nw { display: block; }
+  }
   .footer-logo { height: 30px; width: auto; margin: 18px auto 0; opacity: .9; }
 
   /* floating call (mobile) */
@@ -563,9 +570,9 @@
 
 <footer>
   <div class="container">
-    <p><b>주식회사 그린홈시스</b> · 대표 김상대 · LX하우시스 완성창 대리점</p>
-    <p>서울특별시 금천구 디지털로10길 37 아스크타워 1401호</p>
-    <p>TEL 1551-7704 · greenhomesys@greenhomesys.com</p>
+    <p><span class="nw"><b>주식회사 그린홈시스</b> · 대표 김상대</span><span class="sep"> · </span><span class="nw">LX하우시스 완성창 대리점</span></p>
+    <p><span class="nw">서울특별시 금천구 디지털로10길 37</span> <span class="nw">아스크타워 1401호</span></p>
+    <p><span class="nw">TEL 1551-7704</span><span class="sep"> · </span><span class="nw">greenhomesys@greenhomesys.com</span></p>
     <img class="footer-logo" src="assets/logo.webp" width="370" height="132" alt="그린홈시스 로고" loading="lazy">
   </div>
 </footer>
